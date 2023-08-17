@@ -1,0 +1,5 @@
+In Java, the == operator is used to compare the references of objects, not their actual content. When comparing strings using ==, you are checking whether two string references point to the exact same memory location, rather than checking if the content of the strings is equal.
+
+To compare the content of strings, you should use the equals() method. In your isFoodPresent method, you should modify the comparison from k == str to k.equals(str).
+
+
