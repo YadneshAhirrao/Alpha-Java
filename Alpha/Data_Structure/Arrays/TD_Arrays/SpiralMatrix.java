@@ -12,6 +12,23 @@ public class SpiralMatrix {
 
 
     public static void PrintSpiral(int arr[][]){
-        int
+        int sr = 0;
+        int sc = 0;
+        int er = arr.length - 1;
+        int ec = arr[0].length - 1;
+
+        while (sr <=er && sc <= ec ) {
+            //top
+            for (int i = sc; i < ec; i++) {
+                System.out.print(arr[sr][i]+" ");
+            }
+
+            //right
+            for (int i = ec; i < arr.length; i++) {
+                System.out.print(arr[i][ec]);
+            }
+            //bottom
+            //left
+        }
     }
 }
