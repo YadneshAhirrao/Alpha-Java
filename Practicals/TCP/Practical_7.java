@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Practical_7 {
     public static void main(String[] args) {
-        String ipAddress = "192.168.1.0/24";
+        String ipAddress = "5.0/24";
         String[] parts = ipAddress.split("/");
         String baseAddress = parts[0];
         int prefixLength = Integer.parseInt(parts[1]);
