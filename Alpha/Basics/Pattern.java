@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Pattern {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        // pattern1(5);
-        // pattern2(5);
-        // pattern3(5);
+        pattern1(5);
+        pattern2(5);
+        pattern3(5);
         pattern4(5);
 
         sc.close();

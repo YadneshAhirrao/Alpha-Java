@@ -1,4 +1,4 @@
-# Program make a simple calculator that can add, subtract, multiply and divide using functions
+# Program make a simple calculator using functions by Yadnesh Ahirrao.
 add <- function(x, y) {
   return(x + y)
 }

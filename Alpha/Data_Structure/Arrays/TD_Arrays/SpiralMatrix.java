@@ -5,7 +5,8 @@ public class SpiralMatrix {
         int arr[][] = {
                         {1, 2, 3 ,4},
                         {5, 6, 7, 8},
-                        {9, 10, 11, 12}
+                        {9, 10, 11, 12},
+                        {13, 14, 15, 16}
         };
         PrintSpiral(arr);
     }
@@ -19,16 +20,30 @@ public class SpiralMatrix {
 
         while (sr <=er && sc <= ec ) {
             //top
-            for (int i = sc; i < ec; i++) {
+            for (int i = sc; i <= ec ; i++) {
                 System.out.print(arr[sr][i]+" ");
             }
+            sr++;
 
             //right
-            for (int i = ec; i < arr.length; i++) {
-                System.out.print(arr[i][ec]);
+            for (int i = sr; i <= er ; i++) {
+                System.out.print(arr[i][ec]+" ");
             }
+            ec--;
+
             //bottom
+            
+            for (int i = ec; i >= sc && sr<=er; i--) {
+                System.out.print(arr[er][i]+" ");
+            }
+            er--;
+
             //left
+
+            for (int i = er; i >= sr && sc<=ec; i--) {
+                System.out.print(arr[i][sc]+" ");
+            }
+            sc++;
         }
     }
 }

@@ -15,13 +15,13 @@ public class Sorting {
 
     public static void bubblesort(int[] arr){
         for (int i = 0; i < arr.length-1; i++) {
-            int swaps = 0;
+            // int swaps = 0;
             for (int j = 0; j < arr.length-1-i; j++) {
                 if(arr[j]>arr[j+1]){
                     int temp = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = temp;
-                    swaps++;
+                    // swaps++;
                 }
             }
         }
