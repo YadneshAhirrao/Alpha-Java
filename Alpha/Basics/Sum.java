@@ -156,9 +156,9 @@ public class Sum {
         // butterfly(5);
         // solidrombus(5);
         // diamondpattern(5);
-        // numberpiramid(5);
-        // numpyramid(5);
-        palindromicpattern(5);
+        numberpiramid(5);
+        numpyramid(5);
+        // palindromicpattern(5);
         sc.close();
     }
 
