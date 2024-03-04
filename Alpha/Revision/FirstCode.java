@@ -1,19 +1,82 @@
+package Alpha.Revision;
 // Questions Done Here
+
 /*
  * Binary to decimal
  */
+
+import java.util.Arrays;
 
 public class FirstCode {
     public static void main(String[] args) {
         // String str = "10011010010";
         // binaryToDecimal(str);
 
-        int num = 129;
-        decimalToBinary(num);
-        // pattern8(5);
         int[] arr = { 4, 5, 6, 7, 12, 45, 67, 89, 121 };
-        binarySearchCode(arr, 671);
+        int num = 129;
 
+        // decimalToBinary(num);
+        pattern9(5);
+        // binarySearchCode(arr, 671);
+        // reverseTheArray(arr);
+    }
+
+    public static void pattern9(int num) {
+        // int space = 2 * (num - 1);
+        for (int i = 1; i <= num; i++) {
+            // num
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+
+            // space
+            for (int j = 1; j <= 2 * (num - i); j++) {
+                System.out.print("  ");
+            }
+
+            // num
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+
+            System.out.println();
+            // space -= 2;
+        }
+        // int space1 = 2 * (num - 1);
+        for (int i = num; i > 0; i--) {
+            // num
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+
+            // space
+            for (int j = 1; j <= 2 * (num - i); j++) {
+                System.out.print("  ");
+            }
+
+            // num
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+
+            System.out.println();
+        }
+    }
+
+    public static void reverseTheArray(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
+        }
+
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void binarySearchCode(int[] arr, int key) {
@@ -123,7 +186,7 @@ public class FirstCode {
             }
 
             for (int j = 1; j <= space; j++) {
-                System.out.print(" ");
+                System.out.print("  ");
             }
 
             for (int j = i; j >= 1; j--) {

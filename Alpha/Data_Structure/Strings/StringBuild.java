@@ -22,8 +22,8 @@ public class StringBuild {
         // String str = "hi, yadnesh";
         // System.out.println(UpperWord(str));
 
-        // String s = "aaabbccccdd";
-        // System.out.println(StringCompress(s));
+        String s = "aaabbccccdd";
+        System.out.println(StringCompress(s));
 
         String str1 = "Race";
         String str2 = "care";
