@@ -1,5 +1,3 @@
-package Alpha.Data_Structure.LinkedList;
-
 public class LinkedList {
 
     public static class Node {
