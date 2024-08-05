@@ -1,5 +1,3 @@
-package Alpha.Data_Structure.ArrayLists;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 

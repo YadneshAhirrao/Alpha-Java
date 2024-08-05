@@ -1,4 +1,4 @@
-package Alpha.Data_Structure.Arrays;
+
 
 public class Study {
     public static void main(String[] args) {

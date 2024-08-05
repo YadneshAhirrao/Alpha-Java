@@ -1,5 +1,3 @@
-package Alpha.Data_Structure.Arrays.TD_Arrays;
-
 import java.util.Arrays;
 
 public class HomeWork {

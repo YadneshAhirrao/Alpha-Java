@@ -1,5 +1,3 @@
-package Alpha.Data_Structure.Striver_A_to_Z_DSA;
-
 import java.util.Arrays;
 
 public class Striver_Arrays_1 {

@@ -1,4 +1,4 @@
-package Alpha.Data_Structure.Arrays;
+
 
 public class TrappedRain {
     public static void main(String[] args) {

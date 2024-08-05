@@ -1,4 +1,4 @@
-package Alpha.Data_Structure.Arrays;
+
 import java.util.*;
 
 public class linearSearch {
