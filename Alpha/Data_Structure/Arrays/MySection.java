@@ -1,17 +1,85 @@
 import java.util.Arrays;
 
-public class Revision {
+public class MySection {
     public static void main(String[] args) {
-        int[] arr = { 1, 2, 3, 1, 1, 1, 1 };
-        int[] brr = { 0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0 };
-        int[] crr = { -2, -3, 4, -1, -2, 1, 5, -3 };
-        int[] drr = {7, 1, 5, 3, 6, 4};
-        solve1(arr, 3);
-        solve2(arr, 3);
-        solve3(arr, 5);
-        solve4(brr);
-        solve5(crr);
-        solve6(drr);
+        // int[] arr = { 1, 2, 3, 1, 1, 1, 1 };
+        // int[] brr = { 0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0 };
+        // int[] crr = { -2, -3, 4, -1, -2, 1, 5, -3 };
+        // int[] drr = { 7, 1, 5, 3, 6, 4 };
+        // int[] err = { -4, -3, -2, -1, 1, 2, 3 };
+        int[] frr = { 4000, 3000, 1000, 2000 };
+
+        // solve1(arr, 3);
+        // solve2(arr, 3);
+        // solve3(arr, 5);
+        // solve4(brr);
+        // solve5(crr);
+        // solve6(drr);
+        // solve7(err);
+        solve8(frr);
+    }
+
+    public static void solve8(int[] arr) {
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+        int sum = 0;
+        int avg = arr.length - 2;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+            sum += arr[i];
+        }
+
+        
+        sum = sum - min - max;
+        sum = sum / (arr.length - 2);
+        
+        System.out.println(sum);
+    }
+
+    public static void solve7(int[] arr) {
+        int l = 0;
+        int r = 0;
+        int k = 0;
+        int[] brr = new int[arr.length];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i - 1] < arr[i] && (arr[i - 1] < 0 && arr[i] > 0)) {
+                r = i;
+                l = i - 1;
+            }
+        }
+
+        while (l >= 0 && r < arr.length) {
+            int leftSquare = arr[l] * arr[l];
+            int rightSquare = arr[r] * arr[r];
+
+            if (leftSquare < rightSquare) {
+                brr[k] = leftSquare;
+                l--;
+            } else {
+                brr[k] = rightSquare;
+                r++;
+            }
+            k++;
+        }
+        while (l >= 0) {
+            int leftSquare = arr[l] * arr[l];
+            brr[k] = leftSquare;
+            l--;
+            k++;
+        }
+        while (r < arr.length) {
+            int rightSquare = arr[r] * arr[r];
+            brr[k] = rightSquare;
+            r++;
+            k++;
+        }
+
+        System.out.println(Arrays.toString(brr));
     }
 
     // Buy and Sell Stock

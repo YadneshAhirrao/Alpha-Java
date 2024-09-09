@@ -1,4 +1,4 @@
-package Alpha.Basics;
+
 import java.util.*;
 public class FirstCode {
     public static void main(String[] args) {

@@ -7,6 +7,8 @@ public class basics {
         String str3 = "racecar";
         String str4 = "WNEENESENNN";
         String[] Fruits = { "Apple", "Mango", "banana" };
+        String title = "i.like.this.program.very.much";
+        System.out.println(title.replace(str4, title));
         // System.out.println(str + " " + str2);
         // System.out.println(str2.length());
         PrintLetters(str);

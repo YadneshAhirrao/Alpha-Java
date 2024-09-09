@@ -1,4 +1,4 @@
-package Alpha.Basics;
+
 
 import java.util.Scanner;
 

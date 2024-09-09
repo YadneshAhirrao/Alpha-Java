@@ -61,18 +61,18 @@ public class Revision {
     }
 
     public static void main(String[] args) {
-        Revision ll = new Revision();
+        MySection ll = new MySection();
 
-        ll.addFirst(3);
-        printll();
-        ll.addFirst(6);
-        printll();
-        ll.addLast(4);
-        printll();
-        ll.addLast(23);
-        printll();
-        ll.addMid(2, 99);
-        ll.printll();
+        // ll.addFirst(3);
+        // printll();
+        // ll.addFirst(6);
+        // printll();
+        // ll.addLast(4);
+        // printll();
+        // ll.addLast(23);
+        // printll();
+        // ll.addMid(2, 99);
+        // ll.printll();
 
     }
 }
