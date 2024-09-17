@@ -7,8 +7,13 @@ public class MySection {
         // int[] crr = { -2, -3, 4, -1, -2, 1, 5, -3 };
         // int[] drr = { 7, 1, 5, 3, 6, 4 };
         // int[] err = { -4, -3, -2, -1, 1, 2, 3 };
-        int[] frr = { 4000, 3000, 1000, 2000 };
-
+        // int[] frr = { 4000, 3000, 1000, 2000 };
+        int[][] grr = { 
+            { 0, 0, 1, 0 },
+            { 0, 0, 1, 0 },
+            { 0, 0, 0, 0 },
+            { 0, 0, 1, 0 } 
+        };
         // solve1(arr, 3);
         // solve2(arr, 3);
         // solve3(arr, 5);
@@ -16,7 +21,41 @@ public class MySection {
         // solve5(crr);
         // solve6(drr);
         // solve7(err);
-        solve8(frr);
+        // solve8(frr);
+        solve9(grr);
+    }
+
+    // Celebrity Problem
+    public static void solve9(int matrix[][]) {
+        int top = 0;
+        int down = matrix.length-1;
+
+        while (top < down ) {
+            if (matrix[top][down] == 1) {
+                top++;
+            } else if (matrix[down][top] == 1) {
+                down--;
+            } else {
+                top++;
+                down--;
+            }
+        }
+
+        if (top > down) {
+            System.out.println(-1);
+        }
+
+        for (int i = 0; i < matrix.length; i++) {
+            if (i == top) {
+                continue;
+            }
+            if (matrix[top][i] == 0 && matrix[i][top] == 1) {
+                
+            } else {
+                System.out.println(-1);
+            }
+        }
+        System.out.println(top);
     }
 
     public static void solve8(int[] arr) {
@@ -40,6 +79,8 @@ public class MySection {
         
         System.out.println(sum);
     }
+
+    // Infosys Interview Problem :
 
     public static void solve7(int[] arr) {
         int l = 0;

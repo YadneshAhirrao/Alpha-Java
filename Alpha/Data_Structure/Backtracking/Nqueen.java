@@ -4,7 +4,7 @@ public class Nqueen {
     static int count = 0;
 
     public static void main(String[] args) {
-        int n = 4;
+        int n = 1;
         char board[][] = new char[n][n];
 
         for (char[] ch : board) {
@@ -18,7 +18,7 @@ public class Nqueen {
     public static void nQueen(char board[][], int row) {
         // Base Case
         if (row == board.length) {
-            count++; 
+            count++;
             printBoard(board);
             return;
         }
@@ -26,7 +26,6 @@ public class Nqueen {
         // recursion and backtracking
         for (int j = 0; j < board.length; j++) {
             if (isSafe(board, row, j)) {
-
                 board[row][j] = 'Q';
                 nQueen(board, row + 1);
                 board[row][j] = '.';
