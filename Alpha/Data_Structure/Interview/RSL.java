@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Stack;
 
 /* 
@@ -11,7 +12,46 @@ import java.util.Stack;
 */
 public class RSL {
     public static void main(String[] args) {
-        solve15();
+        solve1();
+    }
+
+    /*
+     * you have given the binary string find the maximum even number by re arranging
+     * binary string you dont alloweed to used any extra space
+     */
+
+    public static void solve17() {
+        System.out.println(function17("10010110"));
+    }
+
+    public static String function17(String str) {
+        char[] ch = str.toCharArray();
+        int one = 0;
+        int zero = 0;
+        int idx = 0;
+        for (char c : ch) {
+            if (c == '1') {
+                one++;
+            } else if (c == '0') {
+                zero++;
+            }
+        }
+
+        if (zero == 0) {
+            return str;
+        }
+
+        while (one > 0) {
+            ch[idx++] = '1';
+            one--;
+        }
+
+        while (zero > 0) {
+            ch[idx++] = '0';
+            zero--;
+        }
+
+        return new String(ch);
     }
 
     /*
@@ -20,15 +60,27 @@ public class RSL {
      */
     public static void solve16() {
         int[] arr = { 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1 };
+        System.out.println(Arrays.toString(arr));
         function16(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void function16(int[] arr) {
-        int i = 0;
-        int j = arr.length - 1;
+        int l = 0;
+        int r = arr.length - 1;
 
-        while (i<j) {
-            
+        while (l < r) {
+            if (arr[l] == 0) {
+                l++;
+            } else if (arr[r] == 1) {
+                r--;
+            } else {
+                int temp = arr[l];
+                arr[l] = arr[r];
+                arr[r] = temp;
+                l++;
+                r--;
+            }
         }
     }
 
@@ -167,72 +219,52 @@ public class RSL {
      * If the given string is unbalanced then balance the string and then return it.
      */
     public static void solve11() {
-        System.out.println(function11("{{)}}"));
+        System.out.println(function11("{[(a+b)*(c+d)]"));
+        System.out.println(function11("{[()]"));
     }
 
-    public static String function11(String str) {
-        Stack<Character> stack = new Stack<>();
-        StringBuilder balancedExp = new StringBuilder(str);
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
+    public static String function11(String exp) {
+        Stack<Character> s = new Stack<>();
+        StringBuilder balancedExp = new StringBuilder();
 
-            // Push opening brackets onto the stack
+        // First, check the balance and construct the initial balanced expression
+        for (char ch : exp.toCharArray()) {
             if (ch == '(' || ch == '{' || ch == '[') {
-                stack.push(ch);
-            }
-            // Check for closing brackets
-            else if (ch == ')' || ch == '}' || ch == ']') {
-                // If the stack is empty or does not match the correct opening bracket, we need
-                // to balance it
-                if (stack.isEmpty() || !isMatchingPair(stack.peek(), ch)) {
-                    // Insert the matching opening bracket before this closing bracket
-                    balancedExp.insert(0, getOpeningBracket(ch));
+                s.push(ch);
+                balancedExp.append(ch);
+            } else if (ch == ')' || ch == '}' || ch == ']') {
+                if (!s.isEmpty() && ((ch == ')' && s.peek() == '(') ||
+                        (ch == '}' && s.peek() == '{') ||
+                        (ch == ']' && s.peek() == '['))) {
+                    s.pop();
                 } else {
-                    // Pop the matching opening bracket
-                    stack.pop();
+                    // Insert the corresponding opening bracket before the unmatched closing one
+                    if (ch == ')')
+                        balancedExp.append('(');
+                    if (ch == '}')
+                        balancedExp.append('{');
+                    if (ch == ']')
+                        balancedExp.append('[');
                 }
+                balancedExp.append(ch);
+            } else {
+                // For other characters, just append to the result
+                balancedExp.append(ch);
             }
         }
 
-        // If there are unmatched opening brackets in the stack, append their
-        // corresponding closing brackets
-        while (!stack.isEmpty()) {
-            char openBracket = stack.pop();
-            balancedExp.append(getClosingBracket(openBracket));
+        // Add any unmatched opening brackets at the end
+        while (!s.isEmpty()) {
+            char top = s.pop();
+            if (top == '(')
+                balancedExp.append(')');
+            else if (top == '{')
+                balancedExp.append('}');
+            else if (top == '[')
+                balancedExp.append(']');
         }
 
         return balancedExp.toString();
-    }
-
-    // Helper function to check if the pair of opening and closing brackets match
-    private static boolean isMatchingPair(char open, char close) {
-        return (open == '(' && close == ')') ||
-                (open == '{' && close == '}') ||
-                (open == '[' && close == ']');
-    }
-
-    // Helper function to return the matching opening bracket for a given closing
-    // bracket
-    private static char getOpeningBracket(char close) {
-        if (close == ')')
-            return '(';
-        if (close == '}')
-            return '{';
-        if (close == ']')
-            return '[';
-        return '\0';
-    }
-
-    // Helper function to return the matching closing bracket for a given opening
-    // bracket
-    private static char getClosingBracket(char open) {
-        if (open == '(')
-            return ')';
-        if (open == '{')
-            return '}';
-        if (open == '[')
-            return ']';
-        return '\0';
     }
 
     /* Function to print a pyramid pattern */

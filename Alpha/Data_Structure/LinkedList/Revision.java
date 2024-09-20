@@ -61,10 +61,10 @@ public class Revision {
     }
 
     public static void main(String[] args) {
-        MySection ll = new MySection();
+        Revision ll = new Revision();
 
-        // ll.addFirst(3);
-        // printll();
+        ll.addFirst(3);
+        printll();
         // ll.addFirst(6);
         // printll();
         // ll.addLast(4);
