@@ -1,5 +1,4 @@
 
-
 import java.util.Scanner;
 
 public class Sum {
@@ -155,7 +154,7 @@ public class Sum {
         // butterflypattern(8);
         // butterfly(5);
         // solidrombus(5);
-        // diamondpattern(5);
+        diamondpattern(5);
         numberpiramid(5);
         numpyramid(5);
         // palindromicpattern(5);
@@ -234,6 +233,16 @@ public class Sum {
 
     // Rotated Half Pyramid
 
+    /*
+     * reverse
+     * 
+     * *
+     * *
+     * * *
+     * * * *
+     * * * * *
+     */
+
     public static void rothpyd1(int num) {
         for (int i = 1; i <= num; i++) {
             // spaces
@@ -261,6 +270,14 @@ public class Sum {
 
     // Floyd's Triangle
 
+    /*
+     * 1
+     * 2 3
+     * 4 5 6
+     * 7 8 9 10
+     * 11 12 13 14 15
+     */
+
     public static void floydstriangle(int num) {
         int a = 1;
         for (int i = 1; i <= num; i++) {
@@ -273,6 +290,14 @@ public class Sum {
     }
 
     // 0-1 Pattern
+
+    /*
+     * 1
+     * 0 1
+     * 1 0 1
+     * 0 1 0 1
+     * 1 0 1 0 1
+     */
     public static void zeroonepattern(int num) {
         int a = 1;
         for (int i = 1; i <= num; i++) {
@@ -419,6 +444,14 @@ public class Sum {
         }
     }
 
+    /*
+     * \        1
+      2 2 2
+    3 3 3 3 3     
+  4 4 4 4 4 4 4
+5 5 5 5 5 5 5 5 5
+     */
+
     public static void numberpiramid(int num) {
         int a = 1;
         for (int i = 1; i <= num; i++) {
@@ -439,6 +472,12 @@ public class Sum {
             System.out.println();
         }
     }
+
+    /*    1
+          2 2
+         3 3 3
+         4 4 4 4
+        5 5 5 5 5 */
 
     public static void numpyramid(int num) {
         for (int i = 1; i <= num; i++) {

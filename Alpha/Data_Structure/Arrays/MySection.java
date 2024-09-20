@@ -5,24 +5,24 @@ public class MySection {
         // int[] arr = { 1, 2, 3, 1, 1, 1, 1 };
         // int[] brr = { 0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0 };
         // int[] crr = { -2, -3, 4, -1, -2, 1, 5, -3 };
-        // int[] drr = { 7, 1, 5, 3, 6, 4 };
+        int[] drr = { 7, 1, 5, 3, 6, 4 };
         // int[] err = { -4, -3, -2, -1, 1, 2, 3 };
         // int[] frr = { 4000, 3000, 1000, 2000 };
-        int[][] grr = { 
-            { 0, 0, 1, 0 },
-            { 0, 0, 1, 0 },
-            { 0, 0, 0, 0 },
-            { 0, 0, 1, 0 } 
-        };
+        // int[][] grr = { 
+        //     { 0, 0, 1, 0 },
+        //     { 0, 0, 1, 0 },
+        //     { 0, 0, 0, 0 },
+        //     { 0, 0, 1, 0 } 
+        // };
         // solve1(arr, 3);
         // solve2(arr, 3);
         // solve3(arr, 5);
         // solve4(brr);
         // solve5(crr);
-        // solve6(drr);
+        solve6(drr);
         // solve7(err);
         // solve8(frr);
-        solve9(grr);
+        // solve9(grr);
     }
 
     // Celebrity Problem
