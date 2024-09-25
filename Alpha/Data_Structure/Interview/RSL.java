@@ -713,6 +713,8 @@ public class RSL {
         return reverse;
     }
 
+    /* max count of the consecutive 1's in a given binary array. */
+
     public static void solve_1() {
         String str = "1100101011110";
         System.out.println(function_1(str));
@@ -923,5 +925,52 @@ public class RSL {
         }
 
         return -1;
+    }
+
+    public String tictactoe(int[][] moves) {
+        int[] row = new int[3];
+        int[] col = new int[3];
+        int dia = 0;
+        int antiDia = 0;
+
+        for (int i = 0; i < moves.length; i++) {
+            int r = moves[i][0];
+            int c = moves[i][1];
+
+            if (i % 2 == 0) {
+                row[r]++;
+                col[c]++;
+
+                if (r == c) {
+                    dia++;
+                }
+
+                if (r + c == 2) {
+                    antiDia++;
+                }
+
+                if (row[r] == 3 || col[c] == 3 || dia == 3 || antiDia == 3) {
+                    return "A";
+                }
+            } else {
+                row[r]--;
+                col[c]--;
+
+                if (r == c) {
+                    dia--;
+                }
+
+                if (r + c == 2) {
+                    antiDia--;
+                }
+
+                if (row[r] == -3 || col[c] == -3 || dia == -3 || antiDia == -3) {
+                    return "B";
+                }
+
+            }
+        }
+
+        return moves.length == 9 ? "Draw" : "Pending";
     }
 }
