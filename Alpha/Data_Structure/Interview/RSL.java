@@ -14,7 +14,39 @@ import java.util.Stack;
 */
 public class RSL {
     public static void main(String[] args) {
-        solve_1();
+        solve19();
+    }
+
+    /*
+     * Find equilibrium point(index) in given array. Equilibrium point is the
+     * element from where sum of all elements left to it is equal to sum of all
+     * elements right to it.
+     */
+
+    public static void solve19() {
+        int[] arr = { 1, 3, 5, 2, 2 };
+        System.out.println(function19(arr));
+    }
+
+    public static int function19(int[] arr) {
+        int totalSum = 0;
+        int leftSum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            totalSum += arr[i];
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            totalSum -= arr[i];
+
+            if (leftSum == totalSum) {
+                return i;
+            }
+
+            leftSum += arr[i];
+        }
+
+        return -1;
     }
 
     /* Lexicographical Numbers */
@@ -824,5 +856,75 @@ public class RSL {
         }
 
         return trappedwater;
+    }
+
+    // Celebrity Problem
+    public static void solve9(int matrix[][]) {
+        int top = 0;
+        int down = matrix.length - 1;
+
+        while (top < down) {
+            if (matrix[top][down] == 1) {
+                top++;
+            } else if (matrix[down][top] == 1) {
+                down--;
+            } else {
+                top++;
+                down--;
+            }
+        }
+
+        if (top > down) {
+            System.out.println(-1);
+        }
+
+        for (int i = 0; i < matrix.length; i++) {
+            if (i == top) {
+                continue;
+            }
+            if (matrix[top][i] == 0 && matrix[i][top] == 1) {
+
+            } else {
+                System.out.println(-1);
+            }
+        }
+        System.out.println(top);
+    }
+
+    static boolean knows(int a, int b, int[][] matrix) {
+        return matrix[a][b] == 1;
+    }
+
+    // Returns -1 if celebrity is not present. If present,
+    // returns id (value from 0 to n-1).
+    static int findCelebrity(int n, int[][] matrix) {
+        // the graph needs not be constructed
+        // as the edges can be found by using knows function
+
+        // degree array;
+        int[] indegree = new int[n];
+        int[] outdegree = new int[n];
+
+        // query for all edges
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                // Convert boolean result to int (1 for
+                // true, 0 for false)
+                int x = knows(i, j, matrix) ? 1 : 0;
+
+                // set the degrees
+                outdegree[i] += x;
+                indegree[j] += x;
+            }
+        }
+
+        // find a person with indegree n-1 and out degree 0
+        for (int i = 0; i < n; i++) {
+            if (indegree[i] == n - 1 && outdegree[i] == 0) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 }
