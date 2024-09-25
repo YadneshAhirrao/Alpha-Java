@@ -891,10 +891,6 @@ public class RSL {
         System.out.println(top);
     }
 
-    static boolean knows(int a, int b, int[][] matrix) {
-        return matrix[a][b] == 1;
-    }
-
     // Returns -1 if celebrity is not present. If present,
     // returns id (value from 0 to n-1).
     static int findCelebrity(int n, int[][] matrix) {
@@ -902,25 +898,26 @@ public class RSL {
         // as the edges can be found by using knows function
 
         // degree array;
-        int[] indegree = new int[n];
-        int[] outdegree = new int[n];
+        int[] knowme = new int[n];
+        int[] iknow = new int[n];
 
         // query for all edges
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 // Convert boolean result to int (1 for
                 // true, 0 for false)
-                int x = knows(i, j, matrix) ? 1 : 0;
+                if (matrix[i][j] == 1) {
+                    // set the degrees
+                    knowme[j]++;
+                    iknow[i]++;
+                }
 
-                // set the degrees
-                outdegree[i] += x;
-                indegree[j] += x;
             }
         }
 
-        // find a person with indegree n-1 and out degree 0
+        // find a person with knowme n-1 and out degree 0
         for (int i = 0; i < n; i++) {
-            if (indegree[i] == n - 1 && outdegree[i] == 0) {
+            if (knowme[i] == n - 1 && iknow[i] == 0) {
                 return i;
             }
         }
