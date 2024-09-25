@@ -731,4 +731,98 @@ public class RSL {
         }
         System.out.println(bin);
     }
+
+    public static void buyandsell(int arr[]) {
+        int minbp = Integer.MAX_VALUE;
+        int profit = 0;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+
+            for (int j = 0; j <= i; j++) {
+                if (arr[i] < minbp) {
+                    minbp = arr[i];
+                }
+
+                profit = arr[i] - minbp;
+                if (profit > max) {
+                    max = profit;
+                }
+            }
+
+        }
+
+        System.out.println("The MAximum Profit is: " + max);
+    }
+
+    // Approch By Shraddha Didi -> Time Complexity is O(n)
+
+    public static void buyandselldidi(int arr[]) {
+        int BuyPrice = Integer.MAX_VALUE;
+        int maxprofit = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            if (BuyPrice < arr[i]) {
+                int profit = arr[i] - BuyPrice;
+                maxprofit = Math.max(maxprofit, profit);
+            } else {
+                BuyPrice = arr[i];
+            }
+
+        }
+
+        System.out.println("The MAximum Profit is: " + maxprofit);
+    }
+
+    public static void trappedwater(int[] arr) {
+        int[] lm = new int[arr.length];
+        int[] rm = new int[arr.length];
+        int lmax = Integer.MIN_VALUE;
+        int rmax = Integer.MIN_VALUE;
+        int water = 0;
+        int totalwater = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > lmax) {
+                lmax = arr[i];
+            }
+            lm[i] = lmax;
+
+            int ii = arr.length - 1 - i;
+            if (arr[ii] > rmax) {
+                rmax = arr[ii];
+            }
+            rm[ii] = rmax;
+
+            water = Math.min(lm[i], rm[i]);
+            totalwater = totalwater + (Math.abs(arr[i] - water));
+        }
+
+        System.out.println(totalwater);
+    }
+
+    public static int trappedrainwater(int arr[]) {
+        int n = arr.length;
+        // left most bondry array
+        int leftmax[] = new int[n];
+        leftmax[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            leftmax[i] = Math.max(arr[i], leftmax[i - 1]);
+        }
+
+        // right max
+        int rightmax[] = new int[n];
+        rightmax[n - 1] = arr[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            rightmax[i] = Math.max(arr[i], rightmax[i + 1]);
+        }
+
+        int trappedwater = 0;
+        for (int i = 0; i < n; i++) {
+            int waterlevel = Math.min(leftmax[i], rightmax[i]);
+            trappedwater += waterlevel - arr[i];
+
+        }
+
+        return trappedwater;
+    }
 }
