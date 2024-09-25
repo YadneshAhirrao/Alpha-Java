@@ -14,7 +14,7 @@ import java.util.Stack;
 */
 public class RSL {
     public static void main(String[] args) {
-        solve0();
+        solve_1();
     }
 
     /* Lexicographical Numbers */
@@ -643,7 +643,11 @@ public class RSL {
         return result.toString();
     }
 
-    /* Reverse the String */
+    /*
+     * Reverse the String
+     * input -> "I am Yadnesh"
+     * output -> "I ma hsendaY"
+     */
 
     public static void solve0() {
         String str = "I am Yadnesh";
@@ -675,5 +679,56 @@ public class RSL {
             reverse += str.charAt(i);
         }
         return reverse;
+    }
+
+    public static void solve_1() {
+        String str = "1100101011110";
+        System.out.println(function_1(str));
+    }
+
+    public static int function_1(String str) {
+        char[] ch = str.toCharArray();
+        int maxCount = 0;
+        int count = 0;
+
+        for (char c : ch) {
+            if (c == '1') {
+                count++;
+                maxCount = Math.max(maxCount, count);
+            } else {
+                count = 0;
+            }
+        }
+
+        return maxCount;
+    }
+
+    // converting Number Binary to Decimal Number
+    public static void bintodec(int num) {
+        int pow = 0;
+        int dec = 0;
+
+        while (num > 0) {
+            int LD = num % 10;
+            dec = dec + (LD * (int) Math.pow(2, pow));
+            pow++;
+            num = num / 10;
+        }
+
+        System.out.println(dec);
+    }
+
+    // Converting Decimal Number to Binary Number.
+    public static void dectobin(int num) {
+        int pow = 0;
+        int bin = 0;
+
+        while (num > 0) {
+            int last = num % 2;
+            bin = bin + (last * (int) Math.pow(10, pow));
+            pow++;
+            num = num / 2;
+        }
+        System.out.println(bin);
     }
 }
