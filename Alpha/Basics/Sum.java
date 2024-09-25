@@ -154,10 +154,10 @@ public class Sum {
         // butterflypattern(8);
         // butterfly(5);
         // solidrombus(5);
-        diamondpattern(5);
-        numberpiramid(5);
-        numpyramid(5);
-        // palindromicpattern(5);
+        // diamondpattern(5);
+        // numberpiramid(5);
+        // numpyramid(5);
+        palindromicpattern(5);
         sc.close();
     }
 

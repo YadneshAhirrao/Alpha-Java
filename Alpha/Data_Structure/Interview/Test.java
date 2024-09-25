@@ -1,50 +1,31 @@
-import java.util.Stack;
+// Method take input as a array and return 2nd largest;
 
 public class Test {
     public static void main(String[] args) {
-        int str = 111;
-        // System.out.println(Solve(str));
-        Solve(str);
+        int[] arr = {1, 3, 3, 5};
+        System.out.println(findSecondMax(arr));
     }
 
-    public static void Solve(int num) {
+    // max = 3 -> 5
+    // secondMax = 0 -> 2 -> 3
 
-        int div = 1;
-        while (div < num) {
-            div *= 10;
-        }
+    public static int findSecondMax(int[] arr) {
+        int max = arr[0];
+        int secondMax = 0;
 
-        boolean first = true;
-        while (div > 0) {
-            int digit = num / div;
-            if (digit != 0) {
-                if (!first) {
-                    System.out.print(" + ");
-                }
-                System.out.print(digit * div);
-                first = false;
+        for(int i = 0; i< arr.length; i++) {
+            if (arr[i] > max) {
+                secondMax = max;
+                max = arr[i];
             }
 
-            num %= div;
-            div /= 10;
+            if (arr[i] < max && arr[i] > secondMax) {
+                secondMax = arr[i];
+            }
         }
-        System.out.println();
+
+        return secondMax;
     }
 
-    // public static String Solve(int num) {
-    // StringBuilder sb = new StringBuilder();
-    // int i = 1;
 
-    // while (num != 0) {
-    // int temp = num % 10;
-    // if (temp != 0) {
-    // sb.insert(0, "+" + (temp * i));
-    // }
-
-    // i *= 10;
-    // num /= 10;
-    // }
-
-    // return sb.substring(1).toString();
-    // }
 }

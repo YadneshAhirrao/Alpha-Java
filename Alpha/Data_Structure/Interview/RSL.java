@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 /* 
@@ -12,7 +14,31 @@ import java.util.Stack;
 */
 public class RSL {
     public static void main(String[] args) {
-        solve1();
+        solve0();
+    }
+
+    /* Lexicographical Numbers */
+
+    public static void solve18() {
+        // System.out.println(function18(112));
+        System.out.println(function18(12));
+    }
+
+    public static List<Integer> function18(int n) {
+        List<Integer> ans = new ArrayList<>();
+        int curr = 1;
+        while (ans.size() < n) {
+            ans.add(curr);
+            if (curr * 10 <= n) {
+                curr *= 10;
+            } else {
+                while (curr == n || curr % 10 == 9) {
+                    curr = curr / 10;
+                }
+                curr += 1;
+            }
+        }
+        return ans;
     }
 
     /*
@@ -615,5 +641,39 @@ public class RSL {
             result.append(word);
         }
         return result.toString();
+    }
+
+    /* Reverse the String */
+
+    public static void solve0() {
+        String str = "I am Yadnesh";
+        System.out.println(function0(str));
+    }
+
+    public static String function0(String str) {
+        String result = "";
+        int start = 0;
+
+        for (int i = 0; i <= str.length(); i++) {
+            if (i == str.length() || str.charAt(i) == ' ') {
+                if (i == str.length()) {
+                    result += reverseWord(str, start, i - 1);
+                } else {
+                    result += reverseWord(str, start, i - 1) + " ";
+                }
+
+                start = i + 1;
+            }
+        }
+
+        return result;
+    }
+
+    public static String reverseWord(String str, int start, int end) {
+        String reverse = "";
+        for (int i = end; i >= start; i--) {
+            reverse += str.charAt(i);
+        }
+        return reverse;
     }
 }
