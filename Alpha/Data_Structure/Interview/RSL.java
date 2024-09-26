@@ -26,7 +26,8 @@ public class RSL {
 
     public static int function20_1(int[] coins, int amount) {
         int[] dp = new int[amount + 1];
-        dp[0] = 1;
+        dp[0] = 1; // since there's only one way to make up amount 0, which is by not choosing any
+                   // coin.
 
         for (int coin : coins) {
             for (int j = coin; j <= amount; j++) {
