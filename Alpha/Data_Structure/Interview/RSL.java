@@ -593,7 +593,8 @@ public class RSL {
      * input, your method will return "abcd"
      */
     public static void solve3() {
-        function3("aabcccccaaa");
+        // function3("aabcccccaaa");
+        System.out.println(function3("aabcccccaaa"));
         System.out.println(function3_1("aabcccccaaa"));
     }
 
@@ -602,7 +603,8 @@ public class RSL {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < str.length(); i++) {
-            countConsecutive++;
+            countConsecutive++; // ensures that when you're at the end of the string, you stop comparing
+                                // characters and append the last character's count.
             if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
                 sb.append(str.charAt(i));
                 sb.append(countConsecutive);
@@ -612,9 +614,9 @@ public class RSL {
         return sb.length() < str.length() ? sb.toString() : str;
     }
 
-    public static void function3(String str) {
+    public static String function3(String str) {
         int[] freq = new int[26];
-
+        StringBuilder sb = new StringBuilder();
         for (char ch : str.toCharArray()) {
             if (ch >= 'a' && ch <= 'z') {
                 freq[ch - 'a']++;
@@ -623,9 +625,13 @@ public class RSL {
 
         for (int i = 0; i < 26; i++) {
             if (freq[i] > 0) {
-                System.out.println((char) (i + 'a') + ": " + freq[i]);
+              
+                sb.append((char)(i + 'a'));
+                sb.append(freq[i]);
             }
         }
+        
+        return sb.length() < str.length() ? sb.toString() : str;
     }
 
     /*
