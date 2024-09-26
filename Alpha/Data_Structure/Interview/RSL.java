@@ -14,7 +14,47 @@ import java.util.Stack;
 */
 public class RSL {
     public static void main(String[] args) {
-        solve19();
+        solve20();
+    }
+
+    /* Coin Change */
+    public static void solve20() {
+        int[] arr = { 1, 2, 5 };
+        System.out.println(function20(arr, 5));
+        System.out.println(function20_1(arr, 5));
+    }
+
+    public static int function20_1(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        dp[0] = 1;
+
+        for (int coin : coins) {
+            for (int j = coin; j <= amount; j++) {
+                dp[j] += dp[j - coin];
+            }
+            System.out.println(Arrays.toString(dp));
+        }
+        return dp[amount];
+
+    }
+
+    public static int function20(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1); // either we use max value or we use extreme negative value;
+        dp[0] = 0;
+
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                if (i - coin >= 0) {
+                    dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(dp));
+
+        return dp[amount] != amount + 1 ? dp[amount] : -1;
+
     }
 
     /*
@@ -277,7 +317,7 @@ public class RSL {
      * If the given string is unbalanced then balance the string and then return it.
      */
     public static void solve11() {
-        System.out.println(function11("{[(a+b)*(c+d)]"));
+        // System.out.println(function11("{[(a+b)*(c+d)]"));
         System.out.println(function11("{[()]"));
     }
 

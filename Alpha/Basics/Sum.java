@@ -157,7 +157,7 @@ public class Sum {
         // diamondpattern(5);
         // numberpiramid(5);
         // numpyramid(5);
-        palindromicpattern(5);
+        // palindromicpattern(5);
         sc.close();
     }
 

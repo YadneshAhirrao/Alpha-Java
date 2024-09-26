@@ -50,6 +50,18 @@ public class Basics {
         return fibo;
     }
 
+    public static int fiboNumber_1(int n, int[] dp) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+
+        if (dp[n] != -1) {
+            return dp[n];
+        }
+        dp[n] = fiboNumber_1(n - 1, dp) + fiboNumber_1(n - 2, dp);
+        return dp[n];
+    }
+
     public static boolean isSorted(int arr[], int i) {
         if (i == arr.length - 1) {
             return true;
@@ -155,14 +167,19 @@ public class Basics {
     public static void main(String[] args) {
         // String str = "ahirrao";
         // removeDublicate(str, 0, new StringBuilder(), new boolean[26]);
-        int[] arr = { 10, 20, 300, 40, 50, 60 };
+        // int[] arr = { 10, 20, 300, 40, 50, 60 };
         // printDec(5);
         // printInc(5);
         // System.out.println(sumNatural(5));
         // System.out.println(factorialNumber(15));
+        // System.out.println(factorialNumber(15));
         // System.out.println(isSorted(arr, 0));
         // mergeSort(arr, 0, arr.length - 1);
-        quickSort(arr, 0, arr.length - 1);
-        System.out.println(Arrays.toString(arr));
+        int n = 5;
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, -1);
+        System.out.println(fiboNumber_1(n, dp));
+        // quickSort(arr, 0, arr.length - 1);
+        // System.out.println(Arrays.toString(arr));
     }
 }
