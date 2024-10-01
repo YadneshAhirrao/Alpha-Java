@@ -14,7 +14,33 @@ import java.util.Stack;
 */
 public class RSL {
     public static void main(String[] args) {
-        solve20();
+        solve3();
+    }
+
+    /* */
+    public static int[] incrementNumber(int[] arr) {
+        int num = 0;
+        for (int i = 0; i < arr.length; i++) {
+            num = num * 10 + arr[i];
+        }
+
+        num += 11;
+        String str = Integer.toString(num);
+        
+        if (str.length() != arr.length) {
+            int[] brr = new int[str.length()];
+            for (int i = 0; i < brr.length; i++) {
+                int n = str.charAt(i) - '0';
+                brr[i] = n;
+            }
+            return brr;
+        } else {
+            for (int i = 0; i < arr.length; i++) {
+                int n = str.charAt(i) - '0';
+                arr[i] = n;
+            }
+            return arr;
+        }
     }
 
     /* Coin Change */
@@ -625,12 +651,12 @@ public class RSL {
 
         for (int i = 0; i < 26; i++) {
             if (freq[i] > 0) {
-              
-                sb.append((char)(i + 'a'));
+
+                sb.append((char) (i + 'a'));
                 sb.append(freq[i]);
             }
         }
-        
+
         return sb.length() < str.length() ? sb.toString() : str;
     }
 
